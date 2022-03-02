@@ -58,6 +58,8 @@ header {
 
 footer {
     display: flex;
+    align-items: center;
+    margin-left: 12rem;
     height: 5vh;
 }
 

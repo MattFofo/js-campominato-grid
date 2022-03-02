@@ -12,6 +12,7 @@ btnPlay.addEventListener('click', play);
 function play() {
     const difficulty = document.getElementById("difficulty").value;
     let eleField = document.querySelector(".field");
+    
     //reset field
     eleField.classList.remove("field-easy", "field-hard", "field-medium")
     eleField.innerHTML = '';
