@@ -5,8 +5,15 @@
 const difficulty = document.getElementById("difficulty").value;
 console.log(difficulty);
 
+const btnPlay = document.getElementById("btn-play");
 
-// condizionale per eseguire diversi cicli a seconda della difficoltà
+
+btnPlay.addEventListener('click', play);
+
+
+function play() {
+
+    // condizionale per eseguire diversi cicli a seconda della difficoltà
 if (difficulty == 'easy') {
     
     //ciclo for per creare 100 elementi
@@ -49,3 +56,8 @@ if (difficulty == 'easy') {
     }
 
 }
+
+}
+
+
+
