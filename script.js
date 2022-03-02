@@ -23,16 +23,28 @@ if (difficulty == 'easy') {
 }else if (difficulty == 'medium') {
 
     //ciclo per craere 80 elementi
-    for (let i = 1; i < 81; i++) {
-        const element = array[i];
+    for (let i = 1; i < 82; i++) {
+        let eleField = document.querySelector(".field");
+        let eleCell = document.createElement("div");
+        eleField.classList.add("field-medium");
+        eleCell.classList.add("cell");
+        eleCell.innerHTML = [i];
+    
+        eleField.append(eleCell);
         
     }
 
-}else if (difficulty == 'medium') {
+}else if (difficulty == 'hard') {
 
     //ciclo per creare 40 elementi
-    for (let i = 1; i < 41; i++) {
-        const element = array[i];
+    for (let i = 1; i < 50; i++) {
+        let eleField = document.querySelector(".field");
+        let eleCell = document.createElement("div");
+        eleField.classList.add("field-hard");
+        eleCell.classList.add("cell");
+        eleCell.innerHTML = [i];
+    
+        eleField.append(eleCell);
         
     }
 
