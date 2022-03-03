@@ -4,65 +4,36 @@
 
 
 const btnPlay = document.getElementById("btn-play");
+const eleField = document.querySelector(".field");
+const eleDifficulty = document.getElementById("difficulty");
+const arrLevels = [100, 81, 49];
 
 btnPlay.addEventListener('click', play);
 
 
 
 function play() {
-    const difficulty = document.getElementById("difficulty").value;
-    let eleField = document.querySelector(".field");
-    
+
     //reset field
-    eleField.classList.remove("field-easy", "field-hard", "field-medium")
     eleField.innerHTML = '';
 
 
-    // condizionale per eseguire diversi cicli a seconda della difficoltà
-    if (difficulty == 'easy') {
-        
-        //ciclo for per creare 100 elementi
-        for (let i = 1; i < 101; i++) {
-            let eleField = document.querySelector(".field");
-            let eleCell = document.createElement("div");
-            eleField.classList.add("field-easy");
-            eleCell.classList.add("cell");
-            eleCell.innerHTML = i;
-        
-            eleField.append(eleCell);
-        }
-        
-    }else if (difficulty == 'medium') {
+    //seleziono il livello
+    let indexLevel = parseInt(eleDifficulty.value); // 0, 1, 2
+    let cellsCount = arrLevels[indexLevel]; // 100, 81, 49
 
-        //ciclo per craere 80 elementi
-        for (let i = 1; i < 82; i++) {
-            let eleField = document.querySelector(".field");
-            let eleCell = document.createElement("div");
-            eleField.classList.add("field-medium");
-            eleCell.classList.add("cell");
-            eleCell.innerHTML = i;
+    //calcolo quante celle per riga in modo da  poterne calcolare i lati 
+    let cellPerRow = Math.sqrt(cellsCount); // 10, 9, 7
+
+    
+    //ciclo per creare le celle
+    for (let cellsNum = 1; cellsNum <= cellsCount; cellsNum++) {
+        let eleCell = document.createElement("div");
+        eleCell.classList.add("cell");
+        eleCell.style.width = `calc(100% / ${cellPerRow})`;
+        eleCell.style.height = `calc(100% / ${cellPerRow})`;
+        eleCell.innerHTML = cellsNum;
+        eleField.append(eleCell);
         
-            eleField.append(eleCell);
-            
-        }
-
-    }else if (difficulty == 'hard') {
-
-        //ciclo per creare 40 elementi
-        for (let i = 1; i < 50; i++) {
-            let eleField = document.querySelector(".field");
-            let eleCell = document.createElement("div");
-            eleField.classList.add("field-hard");
-            eleCell.classList.add("cell");
-            eleCell.innerHTML = i;
-        
-            eleField.append(eleCell);
-            
-        }
-
     }
-
 }
-
-
-
