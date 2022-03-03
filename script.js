@@ -8,11 +8,11 @@ const eleField = document.querySelector(".field");
 const eleDifficulty = document.getElementById("difficulty");
 const arrLevels = [100, 81, 49];
 
-btnPlay.addEventListener('click', play);
+btnPlay.addEventListener('click', setupGame);
 
 
 
-function play() {
+function setupGame() {
 
     //reset field
     eleField.innerHTML = '';
